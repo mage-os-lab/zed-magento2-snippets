@@ -1,0 +1,227 @@
+{
+  "Magento - Page Layout": {
+    "prefix": "page.layout.magento",
+    "description": "Base page layout XML structure for a layout handle file",
+    "body": [
+      "<?xml version=\"1.0\"?>",
+      "<page xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"urn:magento:framework:View/Layout/etc/page_configuration.xsd\">",
+      "\t<body>",
+      "\t\t$0",
+      "\t</body>",
+      "</page>"
+    ]
+  },
+  "Magento - Block": {
+    "prefix": "block.layout.magento",
+    "description": "Declare a new block with a class, name and template",
+    "body": [
+      "<block class=\"${1:Vendor\\Module\\Block\\ClassName}\" name=\"${2:block.name}\" template=\"${3:Vendor_Module::template.phtml}\" />"
+    ]
+  },
+  "Magento - Container": {
+    "prefix": "container.layout.magento",
+    "description": "Declare a layout container with an HTML tag and CSS class",
+    "body": [
+      "<container name=\"${1:container.name}\" htmlTag=\"${2:div}\" htmlClass=\"${3:class-name}\">",
+      "\t$0",
+      "</container>"
+    ]
+  },
+  "Magento - Reference Block": {
+    "prefix": "referenceBlock.layout.magento",
+    "description": "Reference an existing block to add children or arguments to it",
+    "body": [
+      "<referenceBlock name=\"${1:block.name}\">",
+      "\t$0",
+      "</referenceBlock>"
+    ]
+  },
+  "Magento - Reference Container": {
+    "prefix": "referenceContainer.layout.magento",
+    "description": "Reference an existing container to add children or arguments to it",
+    "body": [
+      "<referenceContainer name=\"${1:container.name}\">",
+      "\t$0",
+      "</referenceContainer>"
+    ]
+  },
+  "Magento - Move": {
+    "prefix": "move.layout.magento",
+    "description": "Move a block or container to a different destination in the layout",
+    "body": [
+      "<move element=\"${1:block.name}\" destination=\"${2:container.name}\" />"
+    ]
+  },
+  "Magento - Remove": {
+    "prefix": "remove.layout.magento",
+    "description": "Remove an existing block from the layout",
+    "body": ["<referenceBlock name=\"${1:block.name}\" remove=\"true\" />"]
+  },
+  "Magento - Update Handle": {
+    "prefix": "update.layout.magento",
+    "description": "Include another layout handle into the current one",
+    "body": ["<update handle=\"${1:handle_name}\" />"]
+  },
+  "Magento - Argument String": {
+    "prefix": "arg.layout.magento",
+    "description": "Pass a string argument to a block",
+    "body": [
+      "<argument name=\"${1:name}\" xsi:type=\"string\">${2:value}</argument>"
+    ]
+  },
+  "Magento - Argument Boolean": {
+    "prefix": "argBool.layout.magento",
+    "description": "Pass a boolean argument to a block",
+    "body": [
+      "<argument name=\"${1:name}\" xsi:type=\"boolean\">${2:true}</argument>"
+    ]
+  },
+  "Magento - Argument Array": {
+    "prefix": "argArray.layout.magento",
+    "description": "Pass an array argument with an initial item to a block",
+    "body": [
+      "<argument name=\"${1:name}\" xsi:type=\"array\">",
+      "\t<item name=\"${2:key}\" xsi:type=\"string\">${3:value}</item>",
+      "</argument>"
+    ]
+  },
+  "Magento - Argument Item": {
+    "prefix": "item.layout.magento",
+    "description": "A single string item inside an array argument",
+    "body": ["<item name=\"${1:key}\" xsi:type=\"string\">${2:value}</item>"]
+  },
+  "Magento - ViewModel Argument": {
+    "prefix": "viewModel.layout.magento",
+    "description": "Inject a ViewModel into a block via a view_model argument",
+    "body": [
+      "<argument name=\"view_model\" xsi:type=\"object\">${1:Vendor\\Module\\ViewModel\\ClassName}</argument>"
+    ]
+  },
+  "Magento - CSS File": {
+    "prefix": "css.layout.magento",
+    "description": "Include a CSS file from a module into the page",
+    "body": ["<css src=\"${1:Vendor_Module}::css/${2:style}.css\" />"]
+  },
+  "Magento - JS File": {
+    "prefix": "js.layout.magento",
+    "description": "Include a JS file from a module into the page",
+    "body": ["<script src=\"${1:Vendor_Module}::js/${2:script}.js\" />"]
+  },
+  "Magento - Font Preload": {
+    "prefix": "font.layout.magento",
+    "description": "Preload a font file from a module for improved loading performance",
+    "body": ["<link src=\"${1:Vendor_Module}::fonts/${2:fontname}.woff2\" rel=\"preload\" as=\"font\" crossorigin=\"anonymous\" />"]
+  },
+  "Magento - System Config": {
+    "prefix": "config.system.magento",
+    "description": "Root system.xml config wrapper",
+    "body": [
+      "<?xml version=\"1.0\"?>",
+      "<config xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"urn:magento:module:Magento_Config:etc/system_file.xsd\">",
+      "\t<system>",
+      "\t\t$0",
+      "\t</system>",
+      "</config>"
+    ]
+  },
+  "Magento - System Tab": {
+    "prefix": "tab.system.magento",
+    "description": "Declare a system config tab to group sections under",
+    "body": [
+      "<tab id=\"${1:vendor_name}\" sortOrder=\"${2:999}\" translate=\"label\">",
+      "\t<label>${3:Tab Label}</label>",
+      "</tab>"
+    ]
+  },
+  "Magento - System Section": {
+    "prefix": "section.system.magento",
+    "description": "Declare a system config section under a tab",
+    "body": [
+      "<section id=\"${1:section_id}\" showInDefault=\"1\" showInWebsite=\"1\" showInStore=\"1\" sortOrder=\"${2:100}\" translate=\"label\">",
+      "\t<label>${3:Section Label}</label>",
+      "\t<tab>${4:tab_id}</tab>",
+      "\t<resource>${5:Vendor_Module::config}</resource>",
+      "\t$0",
+      "</section>"
+    ]
+  },
+  "Magento - System Group": {
+    "prefix": "group.system.magento",
+    "description": "Declare a system config group inside a section",
+    "body": [
+      "<group id=\"${1:group_id}\" translate=\"label comment\" sortOrder=\"${2:100}\" showInDefault=\"1\" showInWebsite=\"1\" showInStore=\"1\">",
+      "\t<label>${3:Group Label}</label>",
+      "\t$0",
+      "</group>"
+    ]
+  },
+  "Magento - System Field": {
+    "prefix": "field.system.magento",
+    "description": "Declare a system config field inside a group",
+    "body": [
+      "<field id=\"${1:field_id}\" translate=\"label comment\" type=\"text\" sortOrder=\"${2:10}\" showInDefault=\"1\" showInWebsite=\"1\" showInStore=\"1\">",
+      "\t<label>${3:Field Label}</label>",
+      "\t<comment>${4}</comment>",
+      "</field>"
+    ]
+  },
+  "Magento - Module Config": {
+    "prefix": "config.module.magento",
+    "description": "Root module.xml config wrapper with module declaration and sequence",
+    "body": [
+      "<?xml version=\"1.0\"?>",
+      "<config xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"urn:magento:framework:Module/etc/module.xsd\">",
+      "\t<module name=\"${1:Vendor_Module}\">",
+      "\t\t<sequence>",
+      "\t\t\t<module name=\"${2:Magento_Framework}\" />",
+      "\t\t\t$0",
+      "\t\t</sequence>",
+      "\t</module>",
+      "</config>"
+    ]
+  },
+  "Magento - DI Config": {
+    "prefix": "config.di.magento",
+    "description": "Root di.xml config wrapper",
+    "body": [
+      "<?xml version=\"1.0\"?>",
+      "<config xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"urn:magento:framework:ObjectManager/etc/config.xsd\">",
+      "\t$0",
+      "</config>"
+    ]
+  },
+  "Magento - DI Type": {
+    "prefix": "type.di.magento",
+    "description": "Declare a type in di.xml to add plugins or arguments to a class",
+    "body": [
+      "<type name=\"${1:Vendor\\Module\\ClassName}\">",
+      "\t$0",
+      "</type>"
+    ]
+  },
+  "Magento - DI Plugin": {
+    "prefix": "plugin.di.magento",
+    "description": "Declare a plugin for a type in di.xml",
+    "body": [
+      "<plugin name=\"${1:plugin_name}\" type=\"${2:Vendor\\Module\\Plugin\\ClassName}\" />"
+    ]
+  },
+  "Magento - DI Preference": {
+    "prefix": "preference.di.magento",
+    "description": "Override a class with a preference in di.xml",
+    "body": [
+      "<preference for=\"${1:Vendor\\Module\\ClassName}\" type=\"${2:Vendor\\Module\\Rewrite\\ClassName}\" />"
+    ]
+  },
+  "Magento - DI Virtual Type": {
+    "prefix": "virtualType.di.magento",
+    "description": "Declare a virtual type extending another class in di.xml",
+    "body": [
+      "<virtualType name=\"${1:Vendor\\Module\\VirtualClassName}\" type=\"${2:Vendor\\Module\\ClassName}\">",
+      "\t<arguments>",
+      "\t\t$0",
+      "\t</arguments>",
+      "</virtualType>"
+    ]
+  }
+}

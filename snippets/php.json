@@ -1,0 +1,189 @@
+{
+  "Magento - Escape HTML": {
+    "prefix": "escapeHtml.magento",
+    "description": "Escape a string for safe HTML output",
+    "body": ["\\$escaper->escapeHtml($1)"]
+  },
+  "Magento - Escape URL": {
+    "prefix": "escapeUrl.magento",
+    "description": "Escape a string for safe use in URLs",
+    "body": ["\\$escaper->escapeUrl($1)"]
+  },
+  "Magento - Escape HTML Attr": {
+    "prefix": "escapeHtmlAttr.magento",
+    "description": "Escape a string for safe use in HTML attributes",
+    "body": ["\\$escaper->escapeHtmlAttr($1)"]
+  },
+  "Magento - Escape JS": {
+    "prefix": "escapeJs.magento",
+    "description": "Escape a string for safe inline JavaScript output",
+    "body": ["\\$escaper->escapeJs($1)"]
+  },
+  "Magento - Translate": {
+    "prefix": "__.magento",
+    "description": "Wrap a string in Magento's translation function",
+    "body": ["__('$1')"]
+  },
+  "Magento - Get URL": {
+    "prefix": "getUrl.magento",
+    "description": "Generate a store URL from a route path",
+    "body": ["\\$block->getUrl('$1')"]
+  },
+  "Magento - Get Child HTML": {
+    "prefix": "getChildHtml.magento",
+    "description": "Render a child block by name",
+    "body": ["\\$block->getChildHtml('$1')"]
+  },
+  "Magento - Get Data": {
+    "prefix": "getData.magento",
+    "description": "Get a data value from the current block",
+    "body": ["\\$block->getData('$1')"]
+  },
+  "Magento - File Header": {
+    "prefix": "header.magento",
+    "description": "Standard phtml file header with declare strict, common use statements and @var annotations",
+    "body": [
+      "<?php",
+      "",
+      "declare(strict_types=1);",
+      "",
+      "use Magento\\Framework\\Escaper;",
+      "use Magento\\Framework\\View\\Element\\Template;",
+      "",
+      "/** @var Escaper \\$escaper */",
+      "/** @var Template \\$block */",
+      "?>",
+      "$0"
+    ]
+  },
+  "Magento - Module Registration": {
+    "prefix": "registration.magento",
+    "description": "Module registration.php for registering a Magento 2 module",
+    "body": [
+      "<?php",
+      "",
+      "use Magento\\Framework\\Component\\ComponentRegistrar;",
+      "",
+      "ComponentRegistrar::register(ComponentRegistrar::MODULE, '${1:Vendor_Module}', __DIR__);"
+    ]
+  },
+  "Magento - Script Tag": {
+    "prefix": "script.magento",
+    "description": "Inline script block using SecureHtmlRenderer",
+    "body": [
+      "<?php",
+      "\\$scriptString = <<<script",
+      "\t$0",
+      "script;",
+      "?>",
+      "",
+      "<?= /* @noEscape */ \\$secureRenderer->renderTag('script', [], \\$scriptString, false); ?>"
+    ]
+  },
+  "Magento - Style Tag": {
+    "prefix": "style.magento",
+    "description": "Inline style tag using SecureHtmlRenderer",
+    "body": [
+      "<?= /* @noEscape */ \\$secureRenderer->renderStyleAsTag('$1', '$2'); ?>"
+    ]
+  },
+  "Magento - Argument Class": {
+    "prefix": "argumentClass.magento",
+    "description": "Base class implementing ArgumentInterface for use as a block argument ViewModel",
+    "body": [
+      "<?php",
+      "",
+      "declare(strict_types=1);",
+      "",
+      "namespace ${1:Vendor\\Module\\ViewModel};",
+      "",
+      "use Magento\\Framework\\View\\Element\\Block\\ArgumentInterface;",
+      "",
+      "class ${2:ClassName} implements ArgumentInterface",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+  "Hyvä - File Header": {
+    "prefix": "header.hyva",
+    "description": "Standard phtml file header with declare strict, common use statements and @var annotations",
+    "body": [
+      "<?php",
+      "",
+      "declare(strict_types=1);",
+      "",
+      "use Hyva\\Theme\\Model\\ViewModelRegistry;",
+      "use Hyva\\Theme\\ViewModel\\HyvaCsp;",
+      "use Magento\\Framework\\Escaper;",
+      "use Magento\\Framework\\View\\Element\\Template;",
+      "",
+      "/** @var Escaper \\$escaper */",
+      "/** @var Template \\$block */",
+      "/** @var ViewModelRegistry \\$viewModels */",
+      "/** @var HyvaCsp \\$hyvaCsp */",
+      "?>",
+      "$0"
+    ]
+  },
+  "Hyvä - SVG Icon": {
+    "prefix": "icon.hyva",
+    "description": "Render a custom SVG icon by name via the svgicons ViewModel",
+    "body": [
+      "<?= \\$hyvaicons->renderHtml('${1:icon-name}', '', ${2:24}, ${2:24}, ['aria-hidden' => 'true']) ?>"
+    ]
+  },
+  "Hyvä - SVG Lucide Icon": {
+    "prefix": "lucideIcon.hyva",
+    "description": "Render a Lucide SVG icon via the lucideIcons ViewModel",
+    "body": [
+      "<?= \\$lucideIcons->${1:iconNameHtml}('', ${2:24}, ${2:24}, ['aria-hidden' => 'true']); ?>"
+    ]
+  },
+  "Hyvä - View Model": {
+    "prefix": "viewModel.hyva",
+    "description": "Require a ViewModel from the ViewModelRegistry with a @var type hint",
+    "body": [
+      "/** @var ${1:ClassName} \\$${2:viewModel} */",
+      "\\$${2:viewModel} = \\$viewModels->require(${1:ClassName}::class);"
+    ]
+  },
+  "Hyvä - Dispatch Message": {
+    "prefix": "dispatchMessage.hyva.js",
+    "description": "Show a UI message via Hyvä's dispatchMessages. Duration 0 means persistent until dismissed",
+    "body": ["dispatchMessages([{ type: '${1:notice}', text: '${2}' }])"]
+  },
+  "Hyvä - Private Content Loaded": {
+    "prefix": "privateContent.hyva.js",
+    "description": "Listen for Hyvä's private-content-loaded event to access customer section data",
+    "body": [
+      "window.addEventListener('private-content-loaded', event => $1(event.detail.data));"
+    ]
+  },
+  "Hyvä - Reload Customer Section": {
+    "prefix": "reloadCustomerSection.hyva.js",
+    "description": "Dispatch an event to force a reload of all customer section data",
+    "body": ["window.dispatchEvent(new Event('reload-customer-section-data'));"]
+  },
+  "Hyvä - Format Price": {
+    "prefix": "formatPrice.hyva.js",
+    "description": "Format a number as a store price string including currency symbol",
+    "body": ["hyva.formatPrice($1)"]
+  },
+  "Hyvä - Script Tag": {
+    "prefix": "script.hyva",
+    "description": "Inline script block with an Alpine component function and alpine:init registration",
+    "body": [
+      "<script>",
+      "\tfunction ${1:componentName}() {",
+      "\t\treturn {",
+      "\t\t\t$0",
+      "\t\t}",
+      "\t}",
+      "",
+      "\twindow.addEventListener('alpine:init', () => Alpine.data('${1:componentName}', ${1:componentName}), { once: true })",
+      "</script>",
+      "<?php \\$hyvaCsp->registerInlineScript() ?>"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "Magento LESS Mq - Mobile": {
+    "prefix": "@mq.mobile.magento",
+    "description": "Magento LESS media query for mobile styles",
+    "body": ["& when (@media-common = true) {", "\t$0", "}"]
+  },
+  "Magento LESS Mq - Desktop": {
+    "prefix": "@mq.desktop.magento",
+    "description": "Magento LESS media query for desktop styles",
+    "body": [
+      ".media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {",
+      "\t$0",
+      "}"
+    ]
+  }
+}

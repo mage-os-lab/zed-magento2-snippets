@@ -25,6 +25,27 @@ Requires [rustup](https://rustup.rs) (Rust must be installed via rustup specific
 
 Zed will load the extension directly from that folder. Any changes you make to the snippet files are picked up after reloading the extension from the Extensions panel.
 
+## Recommended setting
+
+To show snippets at the top of the autocomplete list, add this to your Zed settings:
+
+```json
+{
+    "snippet_sort_order": "top"
+}
+```
+
+This can also be scoped per language if you only want it for PHP and XML:
+
+```json
+{
+    "languages": {
+        "PHP": { "snippet_sort_order": "top" },
+        "XML": { "snippet_sort_order": "top" }
+    }
+}
+```
+
 ## Complementary extensions
 
 This extension focuses on Magento 2 and Hyvä specific snippets.

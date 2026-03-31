@@ -9,10 +9,6 @@ Covers the boilerplate you write every day, from phtml headers and CSP script ta
 
 ## Installation
 
-> [!WARNING]
-> This extension is planned for release on the Zed extension marketplace.
-> The repository url is still being decided, so for now use the developer install steps below to use it.
-
 ### Via Zed Extensions
 
 2. Open Zed and go to the Extensions panel (`cmd+shift+x`).
